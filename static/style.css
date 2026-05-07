@@ -1,0 +1,74 @@
+body {
+    font-family: Arial;
+    margin: 40px;
+    background: #f4f4f4;
+}
+
+h1 {
+    color: #333;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+}
+
+th,
+td {
+    padding: 12px;
+    border: 1px solid #ccc;
+    text-align: left;
+}
+
+th {
+    background: #333;
+    color: white;
+}
+
+a {
+    text-decoration: none;
+    padding: 6px 10px;
+    border-radius: 4px;
+}
+
+.add-btn {
+    background: green;
+    color: white;
+}
+
+.edit-btn {
+    background: orange;
+    color: white;
+}
+
+.delete-btn {
+    background: red;
+    color: white;
+}
+
+form{
+    display:flex;
+    gap:10px;
+    margin-bottom:20px;
+}
+
+form input{
+    padding:10px;
+    width:250px;
+    border:1px solid #ccc;
+    border-radius:4px;
+}
+
+form button{
+    background:#333;
+    color:white;
+    border:none;
+    padding:10px 20px;
+    border-radius:4px;
+    cursor:pointer;
+}
+
+form button:hover{
+    background:black;
+}

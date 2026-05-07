@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Management</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+<body>
+
+    <h1>Employee Management System</h1>
+
+    <br>
+
+    <a href="/add" class="add-btn">Add Employee</a>
+
+    <br><br>
+
+    <form action="/search" method="GET">
+
+    <input type="email"
+           name="email"
+           placeholder="Search by Email"
+           required>
+
+    <button type="submit">
+        Search
+    </button>
+
+</form>
+
+<br>
+
+    <table>
+
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Department</th>
+            <th>Salary</th>
+            <th>Actions</th>
+        </tr>
+
+        {% for emp in employees %}
+
+        <tr>
+
+            <td>{{ loop.index }}</td>
+            <td>{{ emp.name }}</td>
+            <td>{{ emp.email }}</td>
+            <td>{{ emp.department }}</td>
+            <td>{{ emp.salary }}</td>
+
+            <td>
+                <a href="/edit/{{ emp.id }}" class="edit-btn">Edit</a>
+
+                <a href="/delete/{{ emp.id }}" class="delete-btn">
+                    Delete
+                </a>
+            </td>
+
+        </tr>
+
+        {% endfor %}
+
+    </table>
+
+</body>
+</html>
