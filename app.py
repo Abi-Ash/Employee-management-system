@@ -4,6 +4,30 @@ from db import get_connection
 
 app = Flask(__name__)
 
+@app.route("/setup")
+def setup_database():
+
+    conn = get_connection()
+
+    cursor = conn.cursor()
+
+    with open("queries.sql", "r") as file:
+
+        sql_queries = file.read()
+
+    queries = sql_queries.split(";")
+
+    for query in queries:
+
+        if query.strip():
+
+            cursor.execute(query)
+
+    conn.commit()
+
+    return "Database Setup Completed"
+
+
 # home route
 @app.route("/")
 def index():
