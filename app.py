@@ -1,31 +1,31 @@
 from flask import Flask, render_template, request, redirect
 from db import get_connection
-import os
+# import os
 
 app = Flask(__name__)
 
-@app.route("/setup")
-def setup_database():
+# @app.route("/setup")
+# def setup_database():
 
-    conn = get_connection()
+#     conn = get_connection()
 
-    cursor = conn.cursor()
+#     cursor = conn.cursor()
 
-    with open("queries.sql", "r") as file:
+#     with open("queries.sql", "r") as file:
 
-        sql_queries = file.read()
+#         sql_queries = file.read()
 
-    queries = sql_queries.split(";")
+#     queries = sql_queries.split(";")
 
-    for query in queries:
+#     for query in queries:
 
-        if query.strip():
+#         if query.strip():
 
-            cursor.execute(query)
+#             cursor.execute(query)
 
-    conn.commit()
+#     conn.commit()
 
-    return "Database Setup Completed"
+#     return "Database Setup Completed"
 
 
 # home route
@@ -185,7 +185,10 @@ def search_employee():
 
 
 if __name__ == "__main__":
-    app.run(
-        host="0.0.0.0",
-        port=int(os.environ.get("PORT", 5000))
-    )
+    app.run(debug=True)
+
+# if __name__ == "__main__":
+#     app.run(
+#         host="0.0.0.0",
+#         port=int(os.environ.get("PORT", 5000))
+#     )
