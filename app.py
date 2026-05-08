@@ -35,7 +35,8 @@ def index():
     cursor = conn.cursor(dictionary=True)
     
     # stored procedure
-    cursor.callproc("GetAllEmployees")
+    # cursor.callproc("GetAllEmployees")
+    cursor.execute("SELECT * FROM employees")
     
     employees = []
     
